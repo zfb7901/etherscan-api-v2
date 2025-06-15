@@ -12,4 +12,6 @@ const (
 	TestnetSepolia  = "11155111"
 	MainnetBNB      = "56"
 	TestnetBNB      = "97"
+	MainnetPolygon  = "137"
+	TestnetPolygon  = "80002"
 )
