@@ -19,7 +19,7 @@ func TestClient_GetLogs(t *testing.T) {
 		},
 	}
 
-	actualLogs, err := api.GetLogs(379224, 379225, "0x33990122638b9132ca29c723bdf037f1a891a70c", "0xf63780e752c6a54a94fc52715dbc5518a3b4c3c2833d301a204226548a2a8545")
+	actualLogs, err := api.GetLogs(54772722, 54772722, "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd", []string{"0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"}, []string{}, 1, 100)
 
 	noError(t, err, "api.GetLogs")
 
