@@ -5,7 +5,7 @@
  * You may find a license copy in project root.
  */
 
-package etherscan
+package etherscan_v2
 
 // EtherTotalSupply gets total supply of ether
 func (c *Client) EtherTotalSupply() (totalSupply *BigInt, err error) {

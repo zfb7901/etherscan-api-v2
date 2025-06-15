@@ -1,6 +1,6 @@
 [English](https://github.com/nanmu42/etherscan-api/blob/master/README.md) | **中文**
 
-# etherscan-api
+# etherscan-api-v2
 
 [![GoDoc](https://godoc.org/github.com/nanmu42/etherscan-api?status.svg)](https://godoc.org/github.com/nanmu42/etherscan-api)
 [![CI status](https://github.com/nanmu42/etherscan-api/actions/workflows/ci.yaml/badge.svg)](https://github.com/nanmu42/etherscan-api/actions)
@@ -15,14 +15,14 @@ Etherscan API的Golang客户端，
 # 使用方法
 
 ```bash
-go get github.com/nanmu42/etherscan-api
+go get github.com/zfb7901/etherscan-api-v2
 ```
 
 填入网络选项和API Key即可开始使用。 :rocket:
 
 ```go
 import (
-	"github.com/nanmu42/etherscan-api"
+	"github.com/zfb7901/etherscan-api-v2"
 	"fmt"
 )
 

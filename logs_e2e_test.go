@@ -1,4 +1,4 @@
-package etherscan
+package etherscan_v2
 
 import (
 	"testing"

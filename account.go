@@ -5,7 +5,7 @@
  * You may find a license copy in project root.
  */
 
-package etherscan
+package etherscan_v2
 
 // AccountBalance gets ether balance for a single address
 func (c *Client) AccountBalance(address string) (balance *BigInt, err error) {

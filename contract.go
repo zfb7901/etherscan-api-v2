@@ -5,7 +5,7 @@
  * You may find a license copy in project root.
  */
 
-package etherscan
+package etherscan_v2
 
 // ContractABI gets contract abi for verified contract source codes
 func (c *Client) ContractABI(address string) (abi string, err error) {
