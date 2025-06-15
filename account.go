@@ -75,6 +75,41 @@ func (c *Client) InternalTxByAddress(address string, startBlock *int, endBlock *
 	return
 }
 
+// InternalTxByAddress gets a list of "internal" transactions by address
+//
+// startBlock and endBlock can be nil
+//
+// if desc is true, result will be sorted in descendant order.
+func (c *Client) InternalTxByBlockRange(startBlock *int, endBlock *int, page int, offset int, desc bool) (txs []InternalTx, err error) {
+	param := M{
+		"page":    page,
+		"offset":  offset,
+	}
+	compose(param, "startblock", startBlock)
+	compose(param, "endblock", endBlock)
+	if desc {
+		param["sort"] = "desc"
+	} else {
+		param["sort"] = "asc"
+	}
+
+	err = c.call("account", "txlistinternal", param, &txs)
+	return
+}
+
+// InternalTx gets a list of "internal" transactions by address
+//
+// startBlock and endBlock can be nil
+//
+// if desc is true, result will be sorted in descendant order.
+func (c *Client) InternalTxByHash(txhash string) (txs []InternalTx, err error) {
+	param := M{
+		"txhash": txhash,
+	}
+	err = c.call("account", "txlistinternal", param, &txs)
+	return
+}
+
 // ERC20Transfers get a list of "erc20 - token transfer events" by
 // contract address and/or from/to address.
 //

@@ -56,8 +56,37 @@ func TestClient_InternalTxByAddress(t *testing.T) {
 	const wantLen = 66
 
 	var a, b = 0, 2702578
-	txs, err := api.InternalTxByAddress("0x2c1ba59d6f58433fb1eaee7d20b26ed83bda51a3", &a, &b, 1, 500, false)
+	txs, err := api.InternalTxByAddress("0x00ee777607Ee4c4Be04f74286BC73C20e3c36aC2", &a, &b, 1, 500, false)
 	noError(t, err, "api.InternalTxByAddress")
+
+	//j, _ := json.MarshalIndent(txs, "", "  ")
+	//fmt.Printf("%s\n", j)
+
+	if len(txs) != wantLen {
+		t.Errorf("got txs length %v, want %v", len(txs), wantLen)
+	}
+}
+
+func TestClient_InternalTxByBlockRange(t *testing.T) {
+	const wantLen = 66
+
+	var a, b = 0, 2702578
+	txs, err := api.InternalTxByBlockRange(&a, &b, 1, 500, false)
+	noError(t, err, "api.InternalTxByBlockRange")
+
+	//j, _ := json.MarshalIndent(txs, "", "  ")
+	//fmt.Printf("%s\n", j)
+
+	if len(txs) != wantLen {
+		t.Errorf("got txs length %v, want %v", len(txs), wantLen)
+	}
+}
+
+func TestClient_InternalTxByHash(t *testing.T) {
+	const wantLen = 66
+
+	txs, err := api.InternalTxByHash("0x7999ceb285295b043ba59fd61f12a8e0d0493cb6b248e3ec0a5729f4f978c364")
+	noError(t, err, "api.InternalTxByHash")
 
 	//j, _ := json.MarshalIndent(txs, "", "  ")
 	//fmt.Printf("%s\n", j)
