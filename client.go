@@ -195,7 +195,7 @@ func (c *Client) call(module, action string, param map[string]interface{}, outco
 	return
 }
 
-func (c *Client) callRpc(module, action string, param map[string]interface{}, outcome *JSONRpcData) (err error) {
+func (c *Client) callRpc(module, action string, param map[string]interface{}, outcome *RPCEnvelope) (err error) {
 	// fire hooks if in need
 	if c.BeforeRequest != nil {
 		err = c.BeforeRequest(module, action, param)

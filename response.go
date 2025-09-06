@@ -24,7 +24,7 @@ type Envelope struct {
 	Result json.RawMessage `json:"result"`
 }
 
-type JSONRpcData struct {
+type RPCEnvelope struct {
 	JSONRpc string                 `json:"jsonrpc"`
 	ID      int                    `json:"id"`
 	Result  map[string]interface{} `json:"result"`
