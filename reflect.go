@@ -42,6 +42,8 @@ func valueToStr(v reflect.Value) (str string) {
 		str = v.String()
 	case reflect.Int:
 		str = strconv.FormatInt(v.Int(), 10)
+	case reflect.Bool:
+		str = strconv.FormatBool(v.Bool())
 	default:
 		panic(fmt.Sprintf("valueToStr: %v is of unexpected kind %q", v, v.Kind()))
 	}

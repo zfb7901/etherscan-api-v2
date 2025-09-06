@@ -27,7 +27,7 @@ func init() {
 	apiKey = "5SPAA3V1AE726C7JG78PNN5WIXGKETVYCX"
 	bucket = NewBucket(500 * time.Millisecond)
 
-	api = New(TestnetBNB, apiKey)
+	api = New(TestnetSepolia, apiKey)
 	api.Verbose = true
 	api.BeforeRequest = func(module string, action string, param map[string]interface{}) error {
 		bucket.Take()

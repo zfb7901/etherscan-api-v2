@@ -24,6 +24,12 @@ type Envelope struct {
 	Result json.RawMessage `json:"result"`
 }
 
+type JSONRpcData struct {
+	JSONRpc string                 `json:"jsonrpc"`
+	ID      int                    `json:"id"`
+	Result  map[string]interface{} `json:"result"`
+}
+
 // AccountBalance account and its balance in pair
 type AccountBalance struct {
 	Account string  `json:"account"`
