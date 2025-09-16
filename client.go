@@ -272,7 +272,8 @@ func (c *Client) callRpc(module, action string, param map[string]interface{}, ou
 	//var data JSONRpcData
 	err = json.Unmarshal(content.Bytes(), outcome)
 	if err != nil {
-		err = wrapErr(err, "json unmarshal jsonrpc")
+		err = fmt.Errorf("json unmarshal jsonrpc: %s", content.Bytes())
+		//err = wrapErr(err, "json unmarshal jsonrpc")
 		return
 	}
 	if outcome.Result == nil {
