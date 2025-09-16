@@ -274,10 +274,10 @@ func (c *Client) callRpc(module, action string, param map[string]interface{}, ou
 		err = wrapErr(err, "json unmarshal jsonrpc:"+content.String())
 		return
 	}
-	//if outcome.Result == nil {
-	//	err = fmt.Errorf("etherscan server: %s", content.Bytes())
-	//	return
-	//}
+	if outcome.Result == nil {
+		err = fmt.Errorf("etherscan server: %s", content.Bytes())
+		return
+	}
 	return
 }
 
