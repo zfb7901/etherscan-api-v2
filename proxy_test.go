@@ -13,14 +13,12 @@ import (
 )
 
 func TestClient_rpcProxy(t *testing.T) {
-	for {
-		params := map[string]interface{}{
-			"tag":     fmt.Sprintf("0x%x", 9138018),
-			"boolean": true,
-		}
-		response, err := api.RpcProxy("eth_getBlockByNumber", params)
-		if err != nil {
-			fmt.Println(response, err, "api.RpcProxy")
-		}
+	params := map[string]interface{}{
+		"tag":     fmt.Sprintf("0x%x", 9138018),
+		"boolean": true,
+	}
+	response, err := api.RpcProxy("eth_getBlockByNumber", params)
+	if err != nil {
+		fmt.Println(response, err, "api.RpcProxy")
 	}
 }
