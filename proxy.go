@@ -7,9 +7,9 @@
 
 package etherscan_v2
 
-// AccountBalance gets ether balance for a single address
-func (c *Client) RpcProxy(action string, param map[string]interface{}) (RPCEnvelope, error) {
-	var result RPCEnvelope
+// RpcProxy AccountBalance gets ether balance for a single address
+func (c *Client) RpcProxy(action string, param map[string]interface{}) ([]byte, error) {
+	var result []byte
 	err := c.callRpc("proxy", action, param, &result)
 	return result, err
 }

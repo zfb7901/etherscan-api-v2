@@ -195,7 +195,7 @@ func (c *Client) call(module, action string, param map[string]interface{}, outco
 	return
 }
 
-func (c *Client) callRpc(module, action string, param map[string]interface{}, outcome *RPCEnvelope) (err error) {
+func (c *Client) callRpc(module, action string, param map[string]interface{}, outcome *[]byte) (err error) {
 	// fire hooks if in need
 	if c.BeforeRequest != nil {
 		err = c.BeforeRequest(module, action, param)
@@ -269,11 +269,12 @@ func (c *Client) callRpc(module, action string, param map[string]interface{}, ou
 		return
 	}
 
-	err = json.Unmarshal(content.Bytes(), outcome)
-	if err != nil {
-		err = wrapErr(err, "json unmarshal jsonrpc")
-		return
-	}
+	*outcome = content.Bytes()
+	//err = json.Unmarshal(content.Bytes(), outcome)
+	//if err != nil {
+	//	err = wrapErr(err, "json unmarshal jsonrpc")
+	//	return
+	//}
 	//if outcome.Result == nil {
 	//	err = fmt.Errorf("etherscan server: %s", content.Bytes())
 	//	return
