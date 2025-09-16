@@ -18,7 +18,5 @@ func TestClient_rpcProxy(t *testing.T) {
 		"boolean": true,
 	}
 	response, err := api.RpcProxy("eth_getBlockByNumber", params)
-	if err != nil {
-		fmt.Println(response, err, "api.RpcProxy")
-	}
+	fmt.Println(response, err, "api.RpcProxy")
 }
