@@ -17,6 +17,8 @@ func TestClient_rpcProxy(t *testing.T) {
 		"tag":     fmt.Sprintf("0x%x", 9138018),
 		"boolean": true,
 	}
-	response, err := api.RpcProxy("eth_getBlockByNumber", params)
-	fmt.Println(response, err, "api.RpcProxy")
+	for {
+		response, err := api.RpcProxy("eth_getBlockByNumber", params)
+		fmt.Println(response, err, "api.RpcProxy")
+	}
 }
