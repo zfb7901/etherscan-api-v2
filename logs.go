@@ -58,6 +58,13 @@ func (c *Client) GetLogs(fromBlock, toBlock int, address string, topicsList []st
 			param["topic1_3_opr"] = topicsOperator
 		}
 	}
+	if page > 0 {
+		param["page"] = page
+	}
+	if offset <= 0 || offset > 1000 {
+		offset = 1000
+	}
+	param["offset"] = offset
 
 	err = c.call("logs", "getLogs", param, &logs)
 	return
